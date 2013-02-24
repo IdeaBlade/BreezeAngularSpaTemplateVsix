@@ -1,0 +1,29 @@
+Angular SPA Template Conversion Notes
+---------------------------------------
+Add <IE9 browser warning about defineProperty to _Layout.cshtml
+Add force-edge browser to _Layout.cshtml (do it to Breeze KO SPA as well)
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+
+replace index.cshtml (entirely reworked)
+
+add ng-cloak class to top of TodoList.css
+	.ng-cloak { display: none; }
+	
+Remove KO package
+Can't use Angular NuGet package ... too much crap.
+Add angular.js and angular.min.js to scripts from version 1.0.5
+
+Add angular.js to _references.js (remove KO)
+Add angular.js to App_Start/bundleconfig.js (remove KO)
+Add angular bundle to Index.cshtml (remove KO)
+
+replace todo.viewmodel.js with todo.controller.js; update bundleconfig.js
+replace todo.bindings.js with todo.main.js; update bundleconfig.js
+replace todo.model.js with Ng version
+replace todo.datacontext.js with Ng version
+
+*** What is jqueryVal doing in EITHER package? ***
+Left over from other SPA? Not used in any Breeze SPA
+Removed the validate binding in "<form data-bind="validate: true">..</form> 
+
+
