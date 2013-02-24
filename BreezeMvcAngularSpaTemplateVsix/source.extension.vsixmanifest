@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="BreezeNgSpa..1a4814f3-7744-4fd7-a47c-36a208b408f4" Version="1.0.0" Language="en-US" Publisher="IdeaBlade" />
+    <DisplayName>Breeze Angular Spa Template</DisplayName>
+    <Description xml:space="preserve">Adds ASP.NET MVC4 Single Page Application (SPA) template using BreezeJS and AngularJS.</Description>
+    <MoreInfo>http://www.breezejs.com/ng-spa-template?utm_source=vsix</MoreInfo>
+    <License>license.txt</License>
+    <Icon>__VsixIcon.ico</Icon>
+    <PreviewImage>BreezeNgLogo.png</PreviewImage>
+    <Tags>Breeze Angular SPA MVC</Tags>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="11.0" />
+    <InstallationTarget Version="[11.0,12.0)" Id="Microsoft.VisualStudio.VWDExpress" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="4.5" />
+  </Dependencies>
+  <Assets>
+    <Asset d:VsixSubPath="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml"
+               Type="Microsoft.VisualStudio.Mvc.Template"
+               d:Source="File"
+               Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\BreezeNgMvcSpaProjectTemplate.cshtml.vstemplate"
+               ProjectType="MVC"
+               Language="C#"
+               ViewEngine="Razor"
+               TemplateId="BreezeNgMvcSpaApplication"
+               Title="Breeze Angular SPA"
+               Description="An ASP.NET MVC 4 project for a single page application with BreezeJS and AngularJS"
+               Version="4.0"/>
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\App_Start\AuthConfig.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\App_Start\BundleConfig.SinglePage.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\App_Start\FilterConfig.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\App_Start\RouteConfig.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\App_Start\WebApiConfig.SinglePage.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Content\Site.SinglePage.css" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Content\TodoList.css" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Controllers\AccountController.SinglePage.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Controllers\HomeController.SinglePage.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Controllers\TodoController.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Models\AccountModels.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Models\TodoItem.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Models\TodoItemContext.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Models\TodoList.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Models\TodoRepository.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Properties\AssemblyInfo.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\ajaxlogin.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\todo.main.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\todo.datacontext.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\todo.model.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\todo.controller.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Scripts\_references.SinglePage.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Scripts\angular.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Scripts\angular.min.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Scripts\breeze.savequeuing.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Account\_ChangePasswordPartial.SinglePage.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Account\_RemoveExternalLoginsPartial.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Account\_SetPasswordPartial.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Account\ExternalLoginFailure.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Account\Login.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Account\Manage.SinglePage.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Home\_Login.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Home\_Register.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Home\Index.SinglePage.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Shared\_Layout.SinglePage.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Shared\_UserSettings.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Shared\Error.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\_ViewStart.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Web.config" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\__TemplateIcon.ico.config" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\BreezeNgMvcSpaProjectTemplate.cshtml.csproj" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\favicon.ico" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Global.asax" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Global.asax.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Web.Debug.config" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Web.Release.config" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Web.SinglePage.config" />
+  </Assets>
+</PackageManifest>
