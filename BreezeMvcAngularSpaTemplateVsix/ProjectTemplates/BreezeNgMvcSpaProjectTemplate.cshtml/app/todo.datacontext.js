@@ -7,10 +7,7 @@ todo.factory('datacontext',
     ['breeze', 'model', '$timeout',
     function (breeze, model, $timeout) {
 
-        // Configure to use the model library for Angular
-        breeze.config.initializeAdapterInstance("modelLibrary", "backingStore", true);
-        breeze.NamingConvention.camelCase.setAsDefault();
-
+        configureBreeze();
         var manager = new breeze.EntityManager("api/Todo");
         manager.enableSaveQueuing(true);
 
@@ -93,6 +90,25 @@ todo.factory('datacontext',
                 } catch (e) { // ignore problem extracting error message 
                     return "validation error";
                 }
+            }
+        }
+        function configureBreeze() {
+            // configure to use the model library for Angular
+            breeze.config.initializeAdapterInstance("modelLibrary", "backingStore", true);
+
+            // configure to use camelCase
+            breeze.NamingConvention.camelCase.setAsDefault();
+
+            // configure to resist CSRF attack
+            var antiForgeryToken = $("#antiForgeryToken").val();
+            if (antiForgeryToken) {
+                // get the current default Breeze AJAX adapter & add header
+                var ajaxAdapter = breeze.config.getAdapterInstance("ajax");
+                ajaxAdapter.defaultSettings = {
+                    headers: {
+                        'RequestVerificationToken': antiForgeryToken
+                    },
+                };
             }
         }
         //#endregion

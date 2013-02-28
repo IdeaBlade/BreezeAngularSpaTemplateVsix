@@ -2,6 +2,14 @@
 @{
     ViewBag.Title = "My $safeprojectname$ Todo Lists";
 }
+@functions{
+    public string GetAntiForgeryToken()
+    {
+        string cookieToken, formToken;
+        AntiForgery.GetTokens(null, out cookieToken, out formToken);
+        return cookieToken + ":" + formToken;                
+    }
+}
 
 <header>
     <h1>@ViewBag.Title</h1>
@@ -46,9 +54,9 @@
                        data-on-blur="list.addTodo()" />
             </form>
             <p class="error" data-ng-show="list.errorMessage">{{list.errorMessage}}</p>
-
         </article>
     </div>
+    <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />      
 }
 else
 {
