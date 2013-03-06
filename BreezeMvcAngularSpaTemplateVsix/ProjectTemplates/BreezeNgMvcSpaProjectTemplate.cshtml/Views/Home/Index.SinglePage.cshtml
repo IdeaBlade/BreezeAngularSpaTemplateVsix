@@ -14,68 +14,16 @@
 <header>
     <h1>@ViewBag.Title</h1>
 </header>
-<div id="main-content" data-ng-app="todo" data-ng-controller="TodoCtrl">
+<div id="main-content" data-ng-app="todo">
 @if (@User.Identity.IsAuthenticated)
 {
-    <div class="ng-cloak">       
-        <p class="error" data-ng-show="error">{{error}}</p>
-        <button data-ng-click="addTodoList()">Add Todo list</button>
-        <br/>
-        <article class="todoList" data-ng-repeat="list in todoLists">
-            <header>
-                <form data-ng-submit="endEdit(list)">
-                    <input data-ng-model="list.title" 
-                           data-selected-when="list.isEditingListTitle"
-                           data-ng-click="clearErrorMessage(list)" 
-                           data-on-blur="endEdit(list)"/>           
-                </form>
-            </header>
-
-            <a href="#" class="deletelist" data-ng-click="deleteTodoList(list)">X</a>
-
-            <ul>
-                <li data-ng-repeat="item in list.todos">
-                    <input type="checkbox" 
-                           data-ng-model="item.isDone" 
-                           data-ng-change="endEdit(item)"/>
-                    <input type="text" class="todoItemInput" 
-                           data-ng-model="item.title" 
-                           data-on-blur="endEdit(item)"
-                           data-on-enter="endEdit(item)"
-                           data-ng-click="clearErrorMessage(item)" 
-                           data-ng-disabled="item.isDone" />
-                    <a href="#" data-ng-click="list.deleteTodo(item)">X</a>
-                    <p class="error" data-ng-show="item.errorMessage">{{item.errorMessage}}</p>
-                </li>
-            </ul>
-            <form data-ng-submit="list.addTodo()">
-                <input data-ng-model="list.newTodoTitle" class="addTodo" 
-                       placeholder = "Type here to add"
-                       data-on-blur="list.addTodo()" />
-            </form>
-            <p class="error" data-ng-show="list.errorMessage">{{list.errorMessage}}</p>
-        </article>
-    </div>
+    <div data-ng-view></div> <!-- The SPA Views go here -->
+    
     <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />      
 }
 else
 {
-    <div class="todoList" id="loginPanel">
-        <section id="localLoginPanel">
-            <h2>Log in</h2>
-            @Html.Partial("_Login")
-        </section>
-        <section id="socialLoginPanel">
-            <h2>Log in using another service</h2>
-            @Html.Action("ExternalLoginsList", "Account", new { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-        <p>First time here? <a id="showRegister">Sign up</a></p>
-    </div>
-    <div class="todoList" id="registerPanel">
-        <h2>Sign up</h2>
-        @Html.Partial("_Register")
-        <p>Already signed up? <a id="showLogin">Log in</a></p>
-    </div>
+    @Html.Partial("_Authentication")
 }
 </div>
 

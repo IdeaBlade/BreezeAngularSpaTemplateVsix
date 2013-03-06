@@ -1,15 +1,25 @@
-﻿/* main: startup script creates the 'todo' module and its Angular directives */
+﻿/* main: startup script creates the 'todo' module and adds custom Ng directives */
 
 // 'todo' is the one Angular (Ng) module in this app
-var todo = angular.module('todo', []);
+// 'todo' module is in global namespace
+todo = angular.module('todo', []);
 
-// Add global "services" (like breeze) to the Ng injector
+// Configure routes
+todo.config(['$routeProvider', function ($routeProvider) {
+      $routeProvider.
+          when('/', { templateUrl: 'app/todo.view.html', controller: 'TodoCtrl' }).
+          when('/about', { templateUrl: 'app/about.view.html', controller: 'AboutCtrl' }).
+          otherwise({ redirectTo: '/' });
+  }]);
+
+// Add global "services" (like breeze and Q) to the Ng injector
 // Learn about Angular dependency injection in this video
 // http://www.youtube.com/watch?feature=player_embedded&v=1CpiB3Wk25U#t=2253s
-todo.value('breeze', window.breeze);
+todo.value('breeze', window.breeze)
+    .value('Q', window.Q);
 
 //#region Ng directives
-/*  We extend the Angular with custom data bindings written as Ng directives */
+/*  We extend Angular with custom data bindings written as Ng directives */
 todo.directive('onFocus', function () {
         return {
             restrict: 'A',

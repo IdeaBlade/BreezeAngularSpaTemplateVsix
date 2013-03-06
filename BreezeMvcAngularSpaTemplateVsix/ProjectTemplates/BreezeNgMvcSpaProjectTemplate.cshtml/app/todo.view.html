@@ -1,0 +1,43 @@
+﻿<!-- TodoList page partial view -->
+<div style="position: absolute; top: 20px; left:2em;">
+<a href="#/about"  class="pageLink" >About</a>&nbsp; 
+<a data-ng-click="getTodos()" class="pageLink" >Refresh</a>     
+</div>  
+   
+<p class="error" data-ng-show="error">{{error}}</p>
+<button data-ng-click="addTodoList()">Add Todo list</button>
+<br/>
+<article class="todoList" data-ng-repeat="list in todoLists">
+    <header>
+        <form data-ng-submit="endEdit(list)">
+            <input  data-ng-model="list.title" 
+                    data-selected-when="list.isEditingListTitle"
+                    data-ng-click="clearErrorMessage(list)" 
+                    data-on-blur="endEdit(list)"/>           
+        </form>
+    </header>
+
+    <a href="#" class="deletelist" data-ng-click="deleteTodoList(list)">X</a>
+
+    <ul>
+        <li data-ng-repeat="item in list.todos">
+            <input type="checkbox" 
+                    data-ng-model="item.isDone" 
+                    data-ng-change="endEdit(item)"/>
+            <input type="text" class="todoItemInput" 
+                    data-ng-model="item.title" 
+                    data-on-blur="endEdit(item)"
+                    data-on-enter="endEdit(item)"
+                    data-ng-click="clearErrorMessage(item)" 
+                    data-ng-disabled="item.isDone" />
+            <a data-ng-click="list.deleteTodo(item)">X</a>
+            <p class="error" data-ng-show="item.errorMessage">{{item.errorMessage}}</p>
+        </li>
+    </ul>
+    <form data-ng-submit="list.addTodo()">
+        <input data-ng-model="list.newTodoTitle" class="addTodo" 
+                placeholder = "Type here to add"
+                data-on-blur="list.addTodo()" />
+    </form>
+    <p class="error" data-ng-show="list.errorMessage">{{list.errorMessage}}</p>
+</article>

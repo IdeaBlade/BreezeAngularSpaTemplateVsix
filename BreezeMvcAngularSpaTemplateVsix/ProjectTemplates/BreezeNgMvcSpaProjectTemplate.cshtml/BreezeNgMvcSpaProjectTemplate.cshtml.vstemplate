@@ -29,11 +29,15 @@
                 <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
             </Folder>
             <Folder Name="app" TargetFolderName="app">
+              <ProjectItem ReplaceParameters="false" TargetFileName="about.controller.js">about.controller.js</ProjectItem>
+              <ProjectItem ReplaceParameters="false" TargetFileName="about.logger.js">about.logger.js</ProjectItem>
+              <ProjectItem ReplaceParameters="false" TargetFileName="about.view.html">about.view.html</ProjectItem>
               <ProjectItem ReplaceParameters="false" TargetFileName="ajaxlogin.js">ajaxlogin.js</ProjectItem>
               <ProjectItem ReplaceParameters="false" TargetFileName="todo.controller.js">todo.controller.js</ProjectItem>
               <ProjectItem ReplaceParameters="false" TargetFileName="todo.datacontext.js">todo.datacontext.js</ProjectItem>
               <ProjectItem ReplaceParameters="false" TargetFileName="todo.main.js">todo.main.js</ProjectItem>
               <ProjectItem ReplaceParameters="false" TargetFileName="todo.model.js">todo.model.js</ProjectItem>
+              <ProjectItem ReplaceParameters="false" TargetFileName="todo.view.html">todo.view.html</ProjectItem>              
             </Folder>          
             <Folder Name="App_Data" TargetFolderName="App_Data" />
             <Folder Name="App_Start" TargetFolderName="App_Start">
@@ -91,6 +95,7 @@
                 </Folder>
                 <Folder Name="Home" TargetFolderName="Home">
                     <ProjectItem ReplaceParameters="true" TargetFileName="Index.cshtml">Index.SinglePage.cshtml</ProjectItem>
+                    <ProjectItem ReplaceParameters="true" TargetFileName="_Authentication.cshtml">_Authentication.cshtml</ProjectItem>                  
                     <ProjectItem ReplaceParameters="true" TargetFileName="_Login.cshtml">_Login.cshtml</ProjectItem>
                     <ProjectItem ReplaceParameters="true" TargetFileName="_Register.cshtml">_Register.cshtml</ProjectItem>
                 </Folder>

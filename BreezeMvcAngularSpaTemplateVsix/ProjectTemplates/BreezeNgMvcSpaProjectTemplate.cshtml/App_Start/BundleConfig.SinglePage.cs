@@ -31,10 +31,13 @@ namespace $safeprojectname$
                         "~/Scripts/breeze.savequeuing.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/todo").Include(
-                "~/app/todo.main.js",
+                "~/app/todo.main.js", // must be first
                 "~/app/todo.model.js",
                 "~/app/todo.datacontext.js",
-                "~/app/todo.controller.js"));
+                "~/app/todo.controller.js",
+                "~/app/about.controller.js",
+                "~/app/about.logger.js"
+                ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.

@@ -5,9 +5,10 @@
  *     datacontext - injected data and model access component (datacontext.js)
  */
 todo.controller('TodoCtrl',
-    ['$scope', 'breeze', 'datacontext',
-    function ($scope, breeze, datacontext) {
+    ['$scope', 'breeze', 'datacontext','logger',
+    function ($scope, breeze, datacontext, logger) {
 
+        logger.log("creating TodoCtrl");
         var removeList = breeze.core.arrayRemoveItem;
 
         $scope.todoLists = [];
@@ -46,11 +47,13 @@ todo.controller('TodoCtrl',
                 showAddedTodoList(todoList); // re-show the restored list
             }
         };
+        $scope.getTodos = function (queryLocally) {
+            datacontext.getTodoLists(queryLocally)
+                .then(getSucceeded).fail(failed).fin(refreshView);
+        };
 
-        // Get the TodoLists now
-        datacontext.getTodoLists()
-                    .then(getSucceeded).fail(failed).fin(refreshView);
-
+        // load TodoLists immediately
+        $scope.getTodos(true); 
 
         //#region private functions 
         function getSucceeded(data) {

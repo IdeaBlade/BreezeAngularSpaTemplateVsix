@@ -48,11 +48,15 @@
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Models\TodoList.cs" />
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Models\TodoRepository.cs" />
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Properties\AssemblyInfo.cs" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\about.controller.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\about.logger.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\about.view.html" />
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\ajaxlogin.js" />
-    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\todo.main.js" />
-    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\todo.datacontext.js" />
-    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\todo.model.js" />
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\todo.controller.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\todo.datacontext.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\todo.main.js" />    
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\todo.model.js" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\app\todo.view.html" />   
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Scripts\_references.SinglePage.js" />
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Scripts\angular.js" />
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Scripts\angular.min.js" />
@@ -65,6 +69,7 @@
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Account\ExternalLoginFailure.cshtml" />
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Account\Login.cshtml" />
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Account\Manage.SinglePage.cshtml" />
+    <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Home\_Authentication.cshtml" />
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Home\_Login.cshtml" />
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Home\_Register.cshtml" />
     <Asset Type="Microsoft.VisualStudio.Mvc.Templates" d:Source="File" Path="ProjectTemplates\BreezeNgMvcSpaProjectTemplate.cshtml\Views\Home\Index.SinglePage.cshtml" />

@@ -1,0 +1,13 @@
+﻿<!-- About page partial view -->
+<div style="position: absolute; top: 20px; left:2em;">
+    <a href="#/todolist" class="pageLink" >TodoList</a>
+</div>
+<h2>About</h2>
+<div class="logEntries">
+	<p>The following events occured during this session:</p>
+	<ul>
+		<li data-ng-repeat="entry in logEntries | orderBy:id">
+			{{entry.id}}: [{{entry.type}}] {{entry.message}}
+		</li>
+	</ul>
+</div>

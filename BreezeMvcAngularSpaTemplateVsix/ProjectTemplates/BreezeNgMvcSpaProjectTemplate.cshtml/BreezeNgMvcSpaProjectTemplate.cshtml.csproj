@@ -259,11 +259,15 @@
     <Content Include="Web.Release.config">                                                                                                                                                
       <DependentUpon>Web.config</DependentUpon>                                                                                                                                           
     </Content>
+    <Content Include="app\about.controller.js" />
+    <Content Include="app\about.logger.js" />
+    <Content Include="app\about.view.html" />    
     <Content Include="app\ajaxlogin.js" />
     <Content Include="app\todo.controller.js" />
+    <Content Include="app\todo.datacontext.js" />    
     <Content Include="app\todo.main.js" />
-    <Content Include="app\todo.datacontext.js" />
     <Content Include="app\todo.model.js" />
+    <Content Include="app\todo.view.html" />    
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />                                                                                                                                                                                   
     <Content Include="Content\Site.css" />
     <Content Include="Content\TodoList.css" /> 
@@ -283,7 +287,8 @@
     <Content Include="Views\Shared\_UserSettings.cshtml" />                                                                                                                               
     <Content Include="Views\Shared\_Layout.cshtml" />                                                                                                                                     
     <Content Include="Views\Web.config" />                                                                                                                                                
-    <Content Include="Views\Home\Index.cshtml" />                                                                                                                                         
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_Authentication.cshtml" />
     <Content Include="Views\Home\_Login.cshtml" />                                                                                                                                      
     <Content Include="Views\Home\_Register.cshtml" />                                                                                                                                     
   </ItemGroup>
