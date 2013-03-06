@@ -17,9 +17,7 @@
 <div id="main-content" data-ng-app="todo">
 @if (@User.Identity.IsAuthenticated)
 {
-    <div data-ng-view></div> <!-- The SPA Views go here -->
-    
-    <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />      
+    <div data-ng-view></div> <!-- The SPA Views go here -->   
 }
 else
 {
@@ -29,6 +27,8 @@ else
 
 @if (@User.Identity.IsAuthenticated)
 {
+    <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />      
+
     @section scripts {
         @Scripts.Render("~/bundles/angular")
         @Scripts.Render("~/bundles/breeze")

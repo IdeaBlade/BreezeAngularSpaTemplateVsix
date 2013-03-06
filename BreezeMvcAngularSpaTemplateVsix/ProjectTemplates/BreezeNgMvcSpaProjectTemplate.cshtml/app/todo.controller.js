@@ -2,10 +2,11 @@
  * Constructor function relies on Ng injector to provide:
  *     $scope - context variable for the view to which the view binds
  *     breeze - breeze is a "module" known to the injectory thanks to main.js
- *     datacontext - injected data and model access component (datacontext.js)
+ *     datacontext - injected data and model access component (todo.datacontext.js)
+ *     logger - records notable events during the session (about.logger.js)
  */
 todo.controller('TodoCtrl',
-    ['$scope', 'breeze', 'datacontext','logger',
+    ['$scope', 'breeze', 'datacontext', 'logger',
     function ($scope, breeze, datacontext, logger) {
 
         logger.log("creating TodoCtrl");
@@ -13,15 +14,36 @@ todo.controller('TodoCtrl',
 
         $scope.todoLists = [];
         $scope.error = "";
-        $scope.endEdit = function (entity) {
+        $scope.getTodos = getTodos;
+        $scope.refresh = refresh;
+        $scope.endEdit = endEdit;
+        $scope.addTodoList = addTodoList;
+        $scope.deleteTodoList = deleteTodoList;
+        $scope.clearErrorMessage = clearErrorMessage;
+
+        // load TodoLists immediately (from cache if possible)
+        $scope.getTodos();
+
+        //#region private functions 
+        function getTodos(forceRefresh) {
+            datacontext.getTodoLists(forceRefresh)
+                .then(getSucceeded).fail(failed).fin(refreshView);
+        }
+        function refresh() { getTodos(true); }
+
+        function getSucceeded(data) {
+            $scope.todoLists = data;
+        }
+        function failed(error) {
+            $scope.error = error.message;
+        }
+        function refreshView() {
+            $scope.$apply();
+        }
+        function endEdit(entity) {
             datacontext.saveEntity(entity).fin(refreshView);
-        };
-        $scope.clearErrorMessage = function (obj) {
-            if (obj && obj.errorMessage) {
-                obj.errorMessage = null;
-            }
-        };
-        $scope.addTodoList = function () {
+        }
+        function addTodoList() {
             var todoList = datacontext.createTodoList();
             todoList.isEditingListTitle = true;
             datacontext.saveEntity(todoList)
@@ -36,8 +58,8 @@ todo.controller('TodoCtrl',
             function addFailed(error) {
                 failed({ message: "Save of new todoList failed" });
             }
-        };
-        $scope.deleteTodoList = function (todoList) {
+        }
+        function deleteTodoList(todoList) {
             removeList($scope.todoLists, todoList);
             datacontext.deleteTodoList(todoList)
                 .fail(deleteFailed)
@@ -46,27 +68,14 @@ todo.controller('TodoCtrl',
             function deleteFailed() {
                 showAddedTodoList(todoList); // re-show the restored list
             }
-        };
-        $scope.getTodos = function (queryLocally) {
-            datacontext.getTodoLists(queryLocally)
-                .then(getSucceeded).fail(failed).fin(refreshView);
-        };
-
-        // load TodoLists immediately
-        $scope.getTodos(true); 
-
-        //#region private functions 
-        function getSucceeded(data) {
-            $scope.todoLists = data;
         }
-        function failed(error) {
-            $scope.error = error.message;
+        function clearErrorMessage(obj) {
+            if (obj && obj.errorMessage) {
+                obj.errorMessage = null;
+            }
         }
         function showAddedTodoList(todoList) {
             $scope.todoLists.unshift(todoList); // Insert todoList at the front
-        }
-        function refreshView() {
-            $scope.$apply();
         }
         //#endregion
     }]);

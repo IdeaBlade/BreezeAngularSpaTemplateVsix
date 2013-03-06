@@ -5,7 +5,7 @@
 // to provide service dependencies
 todo.factory('datacontext',
     ['breeze', 'Q', 'model', 'logger', '$timeout',
-    function(breeze, Q, model, logger, $timeout) {
+    function (breeze, Q, model, logger, $timeout) {
 
         logger.log("creating datacontext");
         var initialized;
@@ -28,14 +28,14 @@ todo.factory('datacontext',
 
         //#region private members
 
-        function getTodoLists(queryCache) {
+        function getTodoLists(forceRefresh) {
 
             var query = breeze.EntityQuery
                 .from("TodoLists").expand("Todos")
                 .orderBy("todoListId desc")
                 .using(manager);
 
-            if (queryCache && initialized) {
+            if (initialized && !forceRefresh) {
                 query = query.using(breeze.FetchStrategy.FromLocalCache);
             }
             initialized = true;
@@ -65,7 +65,7 @@ todo.factory('datacontext',
         function deleteTodoList(todoList) {
             // Neither breeze nor server cascade deletes so we have to do it
             var todoItems = todoList.todos.slice(); // iterate over copy
-            todoItems.forEach(function(entity) { entity.entityAspect.setDeleted(); });
+            todoItems.forEach(function (entity) { entity.entityAspect.setDeleted(); });
             todoList.entityAspect.setDeleted();
             return saveEntity(todoList);
         }
@@ -86,10 +86,10 @@ todo.factory('datacontext',
                 setErrorMessage(error);
                 logger.log("save failed ... " + masterEntity.errorMessage, 'error');
                 // Let user see invalid value briefly before reverting"
-                $timeout(function() { manager.rejectChanges(); }, 1000);
+                $timeout(function () { manager.rejectChanges(); }, 1000);
                 throw error; // so caller can see failure
             }
-            
+
             function getMasterEntityDescription() {
                 var statename = masterEntity.entityAspect.entityState.name.toLowerCase();
                 var typeName = masterEntity.entityType.shortName;
@@ -110,7 +110,7 @@ todo.factory('datacontext',
                     var firstItem = error.entitiesWithErrors[0];
                     var firstError = firstItem.entityAspect.getValidationErrors()[0];
                     return firstError.errorMessage;
-                } catch(e) { // ignore problem extracting error message 
+                } catch (e) { // ignore problem extracting error message 
                     return "validation error";
                 }
             }
