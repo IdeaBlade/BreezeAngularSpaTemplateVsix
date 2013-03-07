@@ -27,26 +27,27 @@ todo.factory('datacontext',
         return datacontext;
 
         //#region private members
-
+        
         function getTodoLists(forceRefresh) {
 
             var query = breeze.EntityQuery
-                .from("TodoLists").expand("Todos")
-                .orderBy("todoListId desc")
-                .using(manager);
+                .from("TodoLists")          
+                .expand("Todos")            
+                .orderBy("todoListId desc");
 
             if (initialized && !forceRefresh) {
                 query = query.using(breeze.FetchStrategy.FromLocalCache);
             }
             initialized = true;
 
-            return query.execute().then(getSucceeded); //caller to handle failure
-
-            function getSucceeded(data) {
-                var qType = data.XHR ? "remote" : "local";
-                logger.log(qType + " query succeeded");
-                return data.results;
-            }
+            return manager.executeQuery(query)
+                .then(getSucceeded); // caller to handle failure
+        }
+        
+        function getSucceeded(data) {
+            var qType = data.XHR ? "remote" : "local";
+            logger.log(qType + " query succeeded");
+            return data.results;
         }
 
         function createTodoItem() {

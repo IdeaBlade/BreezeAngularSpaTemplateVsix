@@ -93,6 +93,7 @@
 a.pageLink {
     color: silver;
     cursor: pointer;
+    margin-right: .5em;
     text-decoration: none;
 }
 
