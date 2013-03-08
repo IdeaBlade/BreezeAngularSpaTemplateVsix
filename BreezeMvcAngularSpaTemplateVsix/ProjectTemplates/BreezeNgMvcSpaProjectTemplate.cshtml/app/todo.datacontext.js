@@ -27,12 +27,12 @@ todo.factory('datacontext',
         return datacontext;
 
         //#region private members
-        
+
         function getTodoLists(forceRefresh) {
 
             var query = breeze.EntityQuery
-                .from("TodoLists")          
-                .expand("Todos")            
+                .from("TodoLists")
+                .expand("Todos")
                 .orderBy("todoListId desc");
 
             if (initialized && !forceRefresh) {
@@ -43,7 +43,7 @@ todo.factory('datacontext',
             return manager.executeQuery(query)
                 .then(getSucceeded); // caller to handle failure
         }
-        
+
         function getSucceeded(data) {
             var qType = data.XHR ? "remote" : "local";
             logger.log(qType + " query succeeded");
@@ -75,45 +75,46 @@ todo.factory('datacontext',
             // if nothing to save, return a resolved promise
             if (!manager.hasChanges()) { return Q(); }
 
-            var description = getMasterEntityDescription();
+            var description = describeSaveOperation(masterEntity);
             return manager.saveChanges().then(saveSucceeded).fail(saveFailed);
 
             function saveSucceeded() {
-                var title = " '" + masterEntity.title + "'";
-                logger.log("saved " + description + title);
+                logger.log("saved " + description);
             }
 
             function saveFailed(error) {
-                setErrorMessage(error);
-                logger.log("save failed ... " + masterEntity.errorMessage, 'error');
-                // Let user see invalid value briefly before reverting"
+                var msg = "Error saving " +
+                    description + ": " +
+                    getErrorMessage(error);
+
+                masterEntity.errorMessage = msg;
+                logger.log(msg, 'error');
+                // Let user see invalid value briefly before reverting
                 $timeout(function () { manager.rejectChanges(); }, 1000);
                 throw error; // so caller can see failure
             }
-
-            function getMasterEntityDescription() {
-                var statename = masterEntity.entityAspect.entityState.name.toLowerCase();
-                var typeName = masterEntity.entityType.shortName;
-                return statename + " " + typeName;
+        }
+        function describeSaveOperation(entity) {
+            var statename = entity.entityAspect.entityState.name.toLowerCase();
+            var typeName = entity.entityType.shortName;
+            var title = entity.title;
+            title = title ? (" '" + title + "'") : "";
+            return statename + " " + typeName + title;
+        }
+        function getErrorMessage(error) {
+            var reason = error.message;
+            if (reason.match(/validation error/i)) {
+                reason = getValidationErrorMessage(error);
             }
-            function setErrorMessage(error) {
-                var msg = "Error saving " + description + ": ";
-
-                var reason = error.message;
-
-                if (reason.match(/validation error/i)) {
-                    reason = getValidationErrorMessage(error);
-                }
-                masterEntity.errorMessage = msg + reason;
-            }
-            function getValidationErrorMessage(error) {
-                try { // return the first error message
-                    var firstItem = error.entitiesWithErrors[0];
-                    var firstError = firstItem.entityAspect.getValidationErrors()[0];
-                    return firstError.errorMessage;
-                } catch (e) { // ignore problem extracting error message 
-                    return "validation error";
-                }
+            return reason;
+        }
+        function getValidationErrorMessage(error) {
+            try { // return the first error message
+                var firstItem = error.entitiesWithErrors[0];
+                var firstError = firstItem.entityAspect.getValidationErrors()[0];
+                return firstError.errorMessage;
+            } catch (e) { // ignore problem extracting error message 
+                return "validation error";
             }
         }
 
