@@ -11,7 +11,7 @@ todo.factory('datacontext',
         var initialized;
 
         configureBreeze();
-        var manager = new breeze.EntityManager("api/Todo");
+        var manager = new breeze.EntityManager("breeze/Todo");
         manager.enableSaveQueuing(true);
 
         var datacontext = {

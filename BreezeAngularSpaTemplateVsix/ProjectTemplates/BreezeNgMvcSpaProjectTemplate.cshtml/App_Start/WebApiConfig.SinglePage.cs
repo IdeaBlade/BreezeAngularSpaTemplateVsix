@@ -12,7 +12,7 @@ namespace $safeprojectname$
         {
             //config.Routes.MapHttpRoute(
             //    name: "DefaultApi",
-            //    routeTemplate: "api/{controller}/{id}",
+            //    routeTemplate: "breeze/{controller}/{id}",
             //    defaults: new { id = RouteParameter.Optional }
             //);
 
